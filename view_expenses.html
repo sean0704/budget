@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查詢開支 - 家庭開支追蹤器</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header>
+        <nav><a href="index.html">回主頁</a></nav>
+        <h1>查詢開支紀錄</h1>
+    </header>
+    <main>
+        <section id="query-section">
+            <h2>查詢條件</h2>
+            <form id="query-form">
+                <!-- Query fields will be detailed later -->
+                <div><label for="query-date-start">日期從:</label><input type="date" id="query-date-start" name="query-date-start"></div>
+                <div><label for="query-date-end">到:</label><input type="date" id="query-date-end" name="query-date-end"></div>
+                <div><label for="query-category">類別:</label><select id="query-category" name="query-category"><option value="">所有類別</option></select></div>
+                <div><label for="query-addedBy">新增人:</label><select id="query-addedBy" name="query-addedBy"><option value="">所有人</option></select></div>
+                <div><label for="query-invoice">發票號碼:</label><input type="text" id="query-invoice" name="query-invoice"></div>
+                <div><label for="query-description">備註關鍵詞:</label><input type="text" id="query-description" name="query-description"></div>
+                <button type="submit">執行查詢</button>
+            </form>
+        </section>
+        <section id="results-section">
+            <h2>查詢結果</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>日期</th>
+                        <th>金額</th>
+                        <th>類別</th>
+                        <th>新增人</th>
+                        <th>發票號碼</th>
+                        <th>備註</th>
+                    </tr>
+                </thead>
+                <tbody id="results-table-body">
+                    <!-- Results will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <!-- Firebase SDKs -->
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js"></script>
+
+    <!-- Your scripts -->
+    <script type="module" src="firebase_config.js"></script>
+    <script type="module" src="view_expenses_script.js"></script>
+</body>
+</html>
